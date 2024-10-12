@@ -1,0 +1,39 @@
+# champernowne's constants
+
+def chapernownes_C(x):
+    
+    a=1
+    num="0"
+    len_of_num=0
+    
+    while len_of_num<x:
+        num+=str(a)
+        len_of_num+=len(str(a))
+        a+=1
+        
+    return(num[x])    
+
+
+# champernowne's constants
+
+def chapernownes_C(x):
+    
+    a=1
+    num="0"
+    len_of_num=0
+    
+    while len_of_num<x:
+        num+=str(a)
+        len_of_num+=len(str(a))
+        a+=1
+        
+    return(num[x])  
+
+
+
+#chapernownes_C(1000000) for testing speed
+result=1
+
+for i in range(0,6+1):
+    result*=int(chapernownes_C(10**i))
+print(result)
