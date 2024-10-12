@@ -1,0 +1,40 @@
+
+k=1
+a=np.array([k]).reshape(1,1)
+
+for i in range(1,1000+1):
+    b=np.zeros(i).reshape(i,1)
+    c=np.zeros(i+1).reshape(-1)
+    
+    
+    if i%2==1: # i tek ise a'nın sağına ardından aşağısına, çift ise soluna ardından yukarısına ekleniyor.
+        for j in range(0,i):
+            b[j]=k+(j+1)
+        k=k+i    
+        
+        for j in range(0,i+1):
+            c[-(j+1)]=k+(j+1)
+            
+        k=k+i+1    
+        a=np.hstack((a,b))
+        a=np.vstack((a,c))
+        
+    else:
+        for j in range(0,i):
+            b[-(j+1)]=k+(j+1)
+        k=k+i
+        
+        for j in range(0,i+1):
+            c[j]=k+j+1
+        k=k+i+1    
+        
+        a=np.hstack((b,a))
+        a=np.vstack((c,a))
+        
+    
+print(a) 
+toplam=0
+for i in range(0,1000+1):
+    toplam+=a[i,i]
+    toplam+=a[-(i+1),i]
+print(toplam-1) # -1 dememizin sebebi en ortadaki sayı olan 1 2 kez sayıldı
