@@ -1,0 +1,37 @@
+matrix_text=r"C:\Users\bilgi\OneDrive\Belgeler\Downloads\0081_matrix (1).txt"
+
+matrix=[]
+with open(matrix_text,"r") as file:
+    
+    for line in file:
+        line=line.strip()
+    
+        if line:
+            row = [int(num) for num in line.split(',')]
+            matrix.append(row)
+            
+
+
+def find_shortest_path(A):
+    n=len(A)
+    
+    for i in range(1,n):
+        #1st row and column
+        A[i][0]+=A[i-1][0]
+        A[0][i]+=A[0][i-1]
+    
+    
+    for i in range(1,n):
+        
+        for j in range(1,n):
+            
+            if A[i][j-1]<A[i-1][j]:
+                A[i][j]+=A[i][j-1]
+            
+            else:
+                 A[i][j]+=A[i-1][j]
+    
+    return A[-1][-1] 
+
+
+print(find_shortest_path(matrix))
