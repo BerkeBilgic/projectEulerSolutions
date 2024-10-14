@@ -1,0 +1,37 @@
+import string
+
+harf_deger={
+    'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10,
+    'K': 11, 'L': 12, 'M': 13, 'N': 14, 'O': 15, 'P': 16, 'Q': 17, 'R': 18, 'S': 19,
+    'T': 20, 'U': 21, 'V': 22, 'W': 23, 'X': 24, 'Y': 25, 'Z': 26
+}
+
+#alphabet_dict = {chr(65 + i): i + 1 for i in range(26)} this is quicker than the previous one
+
+
+file_name="C:/Users/bilgi/OneDrive/Masaüstü/0022_names.txt"
+
+with open(file_name,"r") as file:
+    names=file.read() #all names are understood as one string
+
+names=names.split(",") # they are seperated after every coma
+
+list.sort(names)
+
+toplam=0
+index=1
+
+for name in names:
+    mini_toplam=0
+    
+    for letter in name:
+        
+        if letter in harf_deger.keys():
+            mini_toplam+=harf_deger[letter]
+        else:
+            continue
+            
+    toplam+=mini_toplam*index   
+    index+=1
+    
+toplam    
