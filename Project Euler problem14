@@ -1,0 +1,48 @@
+#collatz problem
+
+zincir_dict={13:9,5:5,7:16,11:14,9:19,17:12}
+
+
+for i in range(2,1000000+1):
+    step=0
+
+    x=i
+    while x!=1:
+        if not (x in zincir_dict):
+            if x%2==0:
+                x=x/2
+                step+=1
+            else:
+                x=3*x+1
+                step+=1
+                
+            zincir_dict[i]=step
+        else:
+            step+=zincir_dict[x]
+            zincir_dict[i]=step
+            break
+                
+                
+                
+biggest=0
+for i in zincir_dict.values():
+    a=1
+    if i>biggest:
+        a+=1
+        biggest=i
+        
+    else:
+        a+=1
+        
+biggest
+value_to_find = biggest
+
+# Key'i bulmak
+found_key = None
+for key, value in zincir_dict.items():
+    if value == value_to_find:
+        found_key = key
+        break
+
+                      
+print(found_key,value_to_find) 
