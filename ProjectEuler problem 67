@@ -1,0 +1,38 @@
+text_file=r"C:\Users\bilgi\OneDrive\Belgeler\Downloads\0067_triangle.txt"
+
+List=[]
+
+with open(text_file,"r") as file:
+        
+        for line in file:
+            line=line.strip()
+    
+            if line:
+                row = [int(num) for num in line.split(' ')]
+                List.append(row)
+            
+
+
+for i in range(0,len(List)):
+    
+    if i!=0:
+            List[i][0]+=List[i-1][0]
+            List[i][-1]+=List[i-1][-1]
+       
+    
+    for j in range(0,len(List[i])):
+        
+        
+        if j==0 or j==(len(List[i])-1):
+            continue
+            
+        else:
+            
+            if List[i-1][j-1]>List[i-1][j]:
+                List[i][j]+=List[i-1][j-1]
+            else:
+                List[i][j]+=List[i-1][j]
+
+
+            
+print(max(List[-1]))          
