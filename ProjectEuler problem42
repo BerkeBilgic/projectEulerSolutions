@@ -1,0 +1,29 @@
+alphabet_dict = {chr(65 + i): i + 1 for i in range(26)}
+#print(alphabet_dict)
+
+triangle_nums=[int(i*(i+1)/2) for i in range(1,41)]
+
+#print(triangle_nums)
+
+text_file=r"C:\Users\bilgi\OneDrive\Belgeler\Downloads\0042_words.txt"
+
+
+with open(text_file,"r") as file:
+    
+    for line in file:
+        line=line.strip()
+        words=line.split(',')
+        
+
+num_of_triangle_wrds=0
+
+for word in words:
+    Sum=0
+    word=word.translate(str.maketrans('', '', '"'))
+    for i in range(0,len(word)):
+        Sum+=alphabet_dict[word[i]]
+    
+    if Sum in triangle_nums:
+        num_of_triangle_wrds+=1
+
+print(num_of_triangle_wrds)
