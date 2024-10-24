@@ -1,0 +1,34 @@
+def calculate_combination(n,r):
+    if n<=0:
+        return ("n cannot be smaller than 0")
+    if r>n:
+        return "r cannot be bigger than n"
+
+    if n==r:
+        return 1
+    
+    else:
+        result=1
+        factorial=1
+        for i in range(1,r+1):
+            result*=n
+            result/=factorial
+            factorial+=1
+            n=n-1
+        
+        return int(result)
+    
+    
+calculate_combination(6,2)
+
+
+len_list=0
+for i in range(1,101):
+    
+    for j in range(1,i):
+           
+            if calculate_combination(i,j)>10**6:
+                len_list+=1
+                
+
+len_list
