@@ -1,0 +1,33 @@
+primes=[i for i in range(3,1000000,2) if is_prime(i)] 
+primes=[2]+primes
+
+consecutive_primes=[]
+
+longest=0
+value=0
+for j in range(0,1000):
+    toplam=0
+    step_num=0
+    for i in primes:
+
+        toplam+=i
+        step_num+=1
+        
+        if toplam>1000000:
+            break
+            
+        else:    
+            if is_prime(toplam) and not toplam in consecutive_primes:
+                consecutive_primes.append(toplam)
+
+                if step_num>longest:
+                    longest=step_num
+                    value=toplam
+
+            
+    primes.pop(0)     
+ 
+
+consecutive_primes.sort()
+#print(consecutive_primes)   
+print(value,longest)
