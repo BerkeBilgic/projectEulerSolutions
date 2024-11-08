@@ -1,0 +1,13 @@
+target_num=0
+
+for num in range(10**5,2*10**5):
+    digits=sorted(str(num))
+    
+    if digits==sorted(str(num*2))==sorted(str(num*3))==sorted(str(num*4))==sorted(str(num*5))==sorted(str(num*6)):
+        target_num=num
+        break
+        
+    else:
+        continue
+    
+print(target_num)    
