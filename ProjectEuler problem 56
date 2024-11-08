@@ -1,0 +1,17 @@
+maks=0
+
+for i in range(2,101):
+    for j in range(1,101):
+        num=i**j
+        str_num=str(num)
+        total=0
+        
+        for num in str_num:
+            total+=int(num)
+            
+        if total>maks:
+            maks=total
+            A=i
+            B=j
+            
+print(f"maks is {maks}. a and b values are {A} - {B}")            
