@@ -1,0 +1,28 @@
+def is_prime(num):
+    for i in range(2,int(num**(1/2))+1):
+        if num%i==0:
+            return False
+    return True
+        
+    
+primes=[i for i in range(2,1000000) if is_prime(i)]    
+
+def find_divisors(x):
+    divisors_list=[]
+    i=0
+    while x>1:
+        
+        if x%primes[i]==0:
+            divisors_list.append(primes[i])
+            x=x/primes[i]
+            
+        else:
+            i+=1
+    return divisors_list    
+
+for num in range(700,10**6):
+    
+    if len(set(find_divisors(num)))==len(set(find_divisors(num+1)))==4:
+        if len(set(find_divisors(num+2)))==len(set(find_divisors(num+3)))==4:
+            print(num)
+            break
