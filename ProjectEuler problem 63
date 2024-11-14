@@ -1,0 +1,13 @@
+#63rd problem. it is weird that using np.power(base,power) dont gives us a correct answer 
+
+liste=[1] # 1^1
+
+for power in range(1,25):
+    for base in range(1,10): # base cannot be 10 as 10^n has n+1 digits
+    
+        num=base**power
+        
+        if len(str(num))==power:
+            liste.append(num)
+        
+print(len(liste))
